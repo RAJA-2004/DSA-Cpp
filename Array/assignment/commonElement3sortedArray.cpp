@@ -36,16 +36,15 @@ vector<int>common(vector<int>& arr1,vector<int>& arr2,vector<int>& arr3,int n1,i
 vector<int> duplicate(vector<int>& a){
     vector<int> ans;
     sort(a.begin(),a.end());
-    for(int i=0;i<a.size();i++){
-        for(int j=i+1;j<a.size();j++){
-            if(a[i]==a[j]){
-                a[j]=INT_MIN;
-            }
-        }
+    if(!(a.empty())){
+        ans.push_back(a[0]);
     }
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=INT_MIN){
-            ans.push_back(a[i]);
+    int i=0;
+    for(int j=1;j<a.size();j++){
+        if(a[j]!=a[i]){
+            ans.push_back(a[j]);
+            a[i+1]=a[j];
+            i++;
         }
     }
     return ans;
@@ -59,7 +58,7 @@ vector<int>common1(vector<int>& arr1,vector<int>& arr2,vector<int>& arr3,int n1,
     int i,j,k;
     i=j=k=0;
     vector<int> ans;
-    while(i<n1 && j<n2 && k<n3){
+    while(i<arr1.size() && j<arr2.size() && k<arr3.size()){
         if(arr1[i]==arr2[j] && arr2[j]==arr3[k]){
             ans.push_back(arr1[i]);
             i++;
@@ -95,6 +94,8 @@ int main(){
     for(auto values : res){
         cout << values << " ";
     }
+
+    
     cout << endl;
     for(auto values : res2){
         cout << values << " ";
