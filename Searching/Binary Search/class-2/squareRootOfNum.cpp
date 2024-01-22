@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+// integer part
 int sq(int target){
     int start = 0;
     int ans = -1;
@@ -24,8 +26,22 @@ int sq(int target){
 }
 int main(){
     int x;
+    cout << "enter the number : ";
     cin >> x;
     int y = sq(x);
     cout << "sqrt of " << x <<" is : " << y << endl;
+
+    int a;
+    cout << "enter number of digits after decimal : ";
+    cin >> a;
+    double ans = y;
+    double step = 0.1;
+    for(int i=0;i<a;i++){
+        for(double j=ans;j*j<=x;j=j+step){
+            ans = j;
+        }
+        step = step / 10;
+    }
+    cout << "final result : " << ans << endl;
     return 0;
 }
