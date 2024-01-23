@@ -6,7 +6,7 @@ int peak(vector<int>ans){
     int end = ans.size()-1;
     int mid = start + (end-start)/2;
     while(start<end){
-        if(ans[mid]<ans[mid+1]){
+        if(mid+1<=ans.size() && ans[mid]<ans[mid+1]){
             return mid+1;
         }
         else{
