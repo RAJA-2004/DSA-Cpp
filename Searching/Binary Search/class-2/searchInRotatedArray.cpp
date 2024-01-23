@@ -41,6 +41,7 @@ int pivot(vector<int>&ans){
     }
     return start;
 }
+
 int search(vector<int>& ans,int target){
     int start = 0;
     int end = ans.size()-1;
