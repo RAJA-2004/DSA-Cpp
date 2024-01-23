@@ -31,11 +31,13 @@ int bs(vector<int>ans,int target){
         if(mid-1>=0 && ans[mid-1]==target){
             return mid-1;
         }
-        else if(ans[mid]>target){
+        if(ans[mid]>target){
+            // left search
             // -2 bcz we have already viisted mid-1 index
             end = mid-2;
         }
         else{
+            // right search
             // +2 bcz we have already viisted mid+ 1 index
             start = mid+2;
         }
