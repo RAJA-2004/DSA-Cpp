@@ -4,10 +4,10 @@ using namespace std;
 bool bs(int arr[][4],int target,int m,int n){
     int start = 0;
     int end = m*n-1;
-    int mid = start+(end-start)/2;
-    int rowIndex = mid/n;
-    int colIndex = mid%n;
     while(start <= end){
+        int mid = start+(end-start)/2;
+        int rowIndex = mid/n;
+        int colIndex = mid%n;
         if(arr[rowIndex][colIndex]==target){
             return true;
         }
@@ -17,7 +17,6 @@ bool bs(int arr[][4],int target,int m,int n){
         else{
             end = mid-1;
         }
-        mid = start+(end-start)/2;
     }
     return false;
 }
