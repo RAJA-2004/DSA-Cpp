@@ -54,7 +54,7 @@ int main(){
     vector<int>veryLargeArray{1,2,3,13,14,18,19,22,23,24,25,26,27,28,29,30,31,32,33,34,45,46};
     int k = 18;
     // int x = expSearch(ans,k);
-    int x = expS(veryLargeArray,k);
+    int x = expS(veryLargeArray,k); 
     if(x==-1){
         cout << "not found" << endl;
     }else{
