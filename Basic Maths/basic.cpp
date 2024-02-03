@@ -18,11 +18,6 @@ bool isPrime(int a){
     return true;
 }
 
-
-// time complexity : 
-// segmented sieve :- varation of eratosthene -> we are given renges low to high
-void prime4()
-
 // time complexity : o(n*log(log n))
 // sieve of eratosthenes
 void prime3(int a){
