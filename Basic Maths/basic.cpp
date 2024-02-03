@@ -18,6 +18,29 @@ bool isPrime(int a){
     return true;
 }
 
+// enhanced approach for sieve 
+void prime4(int a){
+    if(a==0){
+        cout << "not prime";
+    }
+    vector<int>prime(a-1,true); 
+    prime[0]=prime[1]=false;
+    int count=0;
+    for(int i=2;i<a;i++){
+        if(isPrime(i)){
+            count++;
+
+            // int j = i*2; we will not mark the values which have already been marked
+            int j = i*i; // this will ensure that it starts from value which is not marked
+            while(j<a){
+                prime[j]=false;
+                j+=i;
+            }
+        }
+    }
+    cout << "number of prime b/w 0 to " << a << " are : " << count << endl;
+}
+
 // time complexity : o(n*log(log n))
 // sieve of eratosthenes
 void prime3(int a){
@@ -83,5 +106,6 @@ int main(){
     prime1(a);
     prime2(a);
     prime3(a);
+    prime4(a);
     return 0;
 }
