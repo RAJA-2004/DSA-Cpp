@@ -26,6 +26,7 @@ void printArray(int arr[],int n){
     cout << *arr << " ";
     printArray(arr+1,n-1);
 }
+
 int main(){
     int arr[5]={1,2,3,4,5};
     int i = 0;
