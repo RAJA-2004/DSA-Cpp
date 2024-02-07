@@ -6,6 +6,9 @@
 #include <map>
 using namespace std;
 
+// time complexity : o(n)
+// space complexity : o(n)
+
 int fact(int n){
     // base case
     if(n<=1){
