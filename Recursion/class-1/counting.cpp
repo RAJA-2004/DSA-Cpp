@@ -6,6 +6,9 @@
 #include <map>
 using namespace std;
 
+// time complexity : o(n)
+// space complexity : o(n)
+
 void revCount(int n){
     // base case
     if(n==0){
@@ -15,6 +18,9 @@ void revCount(int n){
     // function calling itself
     revCount(n-1);
 }
+
+// time complexity : o(n)
+// space complexity : o(n)
 
 void forCount(int n){
     // base case
