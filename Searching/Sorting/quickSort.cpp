@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+
+// time complexity : o(n logn)
+
 int p(vector<int>& ans,int low,int high){
     int pivot = ans[low];
     int i = low;
