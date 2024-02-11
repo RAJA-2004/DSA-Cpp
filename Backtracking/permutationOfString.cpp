@@ -6,6 +6,8 @@
 #include <map>
 using namespace std;
 
+// time complexity : o(n!)
+
 void print(string& s,int i){
     // base
     if(i>=s.length()){
