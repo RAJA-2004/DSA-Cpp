@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+
+// time complexity : o(n logn)
+
 void m(vector<int>& ans,int low,int mid,int high){
     int i,j,k;
     int n1 = mid-low+1;
