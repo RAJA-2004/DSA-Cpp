@@ -19,41 +19,41 @@ bool isSafe(int i,int j,int row,int col,vector<vector<int> >& maze,vector<vector
 }
 
 // void solveMaze(vector<vector<int> >& maze,int row,int col,int i,int j,vector<vector<bool> >& visited,vector<string>& path,string output){
-//     // base case
+    // base case
 //     if(i == row-1 && j == col-1){
 //         path.push_back(output);
 //         return;
 //     }
-//     // processing
-//     // down -> [i+1][j]
+    // processing
+    // down -> [i+1][j]
 //     if(isSafe(i+1,j,row,col,maze,visited)){
 //         visited[i+1][j] = true;
 //         solveMaze(maze,row,col,i+1,j,visited,path,output+'D');
-//         // backtracking
+        // backtracking
 //         visited[i+1][j] = false;
 //     }
 
-//     // left -> [i][j-1]
+    // left -> [i][j-1]
 //     if(isSafe(i,j-1,row,col,maze,visited)){
 //         visited[i][j-1] = true;
 //         solveMaze(maze,row,col,i,j-1,visited,path,output+'L');
-//         // backtracking
+        // backtracking
 //         visited[i][j-1] = false;
 //     }
 
-//     // right -> [i][j+1]
+    // right -> [i][j+1]
 //     if(isSafe(i,j+1,row,col,maze,visited)){
 //         visited[i][j+1] = true;
 //         solveMaze(maze,row,col,i,j+1,visited,path,output+'R');
-//         // backtracking
+        // backtracking
 //         visited[i][j+1] = false;
 //     }
 
-//     // up -> [i-1][j]
+    // up -> [i-1][j]
 //     if(isSafe(i-1,j,row,col,maze,visited)){
 //         visited[i-1][j] = true;
 //         solveMaze(maze,row,col,i+1,j,visited,path,output+'U');
-//         // backtracking
+        // backtracking
 //         visited[i-1][j] = false;
 //     }
 
