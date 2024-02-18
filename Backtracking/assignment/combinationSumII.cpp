@@ -17,6 +17,11 @@ void solve(vector<int>& candidates, int target,vector<vector<int> >& ans,vector<
     }
     // processing
     for(int i=index;i<candidates.size();i++){
+
+        if(i>index && candidates[i]==candidates[i-1]){
+            continue;
+        }
+
         v.push_back(candidates[i]);
         // i+1 bcz we dont want same values to repeat
         solve(candidates,target-candidates[i],ans,v,i+1);
@@ -31,16 +36,19 @@ vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
     vector<int> v;
     solve(candidates,target,ans,v,0);
 
-    // set made bcz we needed unique pairs
-    set<vector<int> >st;
-    for(auto val : ans){
-        st.insert(val);
-    }
-    ans.clear();
-    for(auto val : st){
-        ans.push_back(val);
-    }
     return ans;
+
+    // set made bcz we needed unique pairs
+    // this will give TLE
+    // set<vector<int> >st;
+    // for(auto val : ans){
+    //     st.insert(val);
+    // }
+    // ans.clear();
+    // for(auto val : st){
+    //     ans.push_back(val);
+    // }
+    // return ans;
 }
 
 int main(){
