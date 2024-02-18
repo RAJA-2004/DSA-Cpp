@@ -22,7 +22,7 @@ string removeDuplicate(string str){
 }
 
 int main(){
-    string str = "abbacd"; 
+    string str = "aabcbbca"; 
     string c = removeDuplicate(str);
     cout << c << endl;
     return 0;
