@@ -21,7 +21,7 @@ void print(string& s,int i){
         print(s,i+1);
         // backtracking -> why this -> to recreate the original string
 
-        // swap(s[i],s[j]);
+        swap(s[i],s[j]);
     }
 }
 
