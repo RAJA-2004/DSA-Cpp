@@ -23,7 +23,7 @@ void sub(string& s,string t,int i,vector<string>& ans){
 
 
 int main(){
-    string a = "abc";
+    string a = "ab";
     string t = "";
     vector<string> ans;
     int i = 0 ;
