@@ -34,28 +34,28 @@ Node* createTree(){
     return root;
 }
 
-Node* lowestCommonAncestor(Node* root, Node* p,int k) {
-    if(root==NULL) return NULL;
-    if(root->data==p->data){
-        return p;
+bool lowestCommonAncestor(Node* root, int p,int k) {
+    if(root==NULL){
+        return false;
+    }
+    if(root->data==p){
+        return true;
+    }
+    bool leftSearch = lowestCommonAncestor(root->left,p,k);
+    bool rightSearch = lowestCommonAncestor(root->right,p,k);
+    if(leftSearch || rightSearch){
         k--;
     }
-    if(k==0){
-        return root;
+    if(k == 0){
+        cout << root->data << " ";
+        k=-1;
     }
-    Node* leftSearch = lowestCommonAncestor(root->left,p,k);
-    Node* rightSearch = lowestCommonAncestor(root->right,p,k);
-
-    if(leftSearch==NULL && rightSearch==NULL) return NULL;
-    else if(leftSearch==NULL && rightSearch!=NULL) return rightSearch;
-    else if(leftSearch!=NULL && rightSearch==NULL) return leftSearch;
-    else return root;
+    return leftSearch || rightSearch;
 }
 int main(){
     Node* root = createTree();
-    Node* p = new Node(5);
-    int k = 2;
-    root = lowestCommonAncestor(root,p,k);
-    cout << "lowest Common Ancestor : " << root->data << endl;
+    int k = 1;
+    int p = 4;
+    bool f = lowestCommonAncestor(root,p,k);
     return 0;
 }
