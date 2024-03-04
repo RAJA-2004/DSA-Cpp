@@ -81,7 +81,6 @@ vector<int> boundary(Node* root){
     return ans;
 }
 
-
 int main(){
     Node* root = createTree();
     vector<int> ans = boundary(root);
