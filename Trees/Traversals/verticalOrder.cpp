@@ -7,6 +7,8 @@
 #include <map>
 using namespace std;
 
+// time complexity : O(n)
+// space complexity : O(n)
 class Node{
     public:
     int data;
@@ -36,27 +38,33 @@ Node* createTree(){
 }
 
 vector<vector<int> > vertical(Node* root){
+    // multiset bcz we can have duplicate values as well
     map<int,map<int,multiset<int>>> nodes;
+    
     queue<pair<Node*,pair<int,int>>> todo;
     // push root
     todo.push({root,{0,0}});
+
+    // level order steps
     while(!todo.empty()){
         auto p = todo.front();
         todo.pop();
+
         Node* temp = p.first;
-        int x = p.second.first;
-        int y = p.second.second;
-        nodes[x][y].insert(temp->data);
+        int vertical_order = p.second.first;
+        int lvl = p.second.second;
+
+        nodes[vertical_order][lvl].insert(temp->data);
 
         if(temp->left){
-            int vertical = x-1;
-            int level = y+1;
+            int vertical = vertical_order-1;
+            int level = lvl+1;
             todo.push({temp->left,{vertical,level}});
         }
 
         if(temp->right){
-            int vertical = x+1;
-            int level = y+1;
+            int vertical = vertical_order+1;
+            int level = lvl+1;
             todo.push({temp->right,{vertical,level}});
         }
     }
@@ -64,7 +72,10 @@ vector<vector<int> > vertical(Node* root){
     vector<vector<int>> ans;
     for(auto p : nodes){
         vector<int> col;
+        // p.second -> map<int,multiset<int>>
         for(auto q : p.second){
+            // insets all the data of the multiset into the vector
+            // to the end from starting of the multiset till end
             col.insert(col.end(),q.second.begin(),q.second.end());
         }
         ans.push_back(col);
@@ -83,11 +94,3 @@ int main(){
     }
     return 0;
 }
-
-    //                     10(0,0)
-    //                   /         \ 
-    //           20(-1,1)           50(1,1) 
-    //           /      \           /      \ 
-    //    30(-2,2)      40(0,2) 60(0,2)    70(2,2)
-
-    // 30 20 10 40 60 50 70
