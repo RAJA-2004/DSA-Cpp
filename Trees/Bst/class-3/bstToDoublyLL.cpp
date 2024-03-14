@@ -61,26 +61,42 @@ void display(Node* &head){
     Node* temp = head;
     while(temp){
         cout << temp->data << " ";
-        temp=temp->left;
+        temp=temp->right;
     }
     cout << endl;
 }
 
-void create(){
-    Node* root = NULL;
-    while(true){
-        int key;
-        cin >> key;
-        if(key==-1) break;
-        root = bst(root,key);
+void lvl(Node* root){
+    queue<Node*>q;
+    q.push(root);
+    while(!q.empty()){
+        Node* temp = q.front();
+        q.pop();
+        cout << temp->data << " ";
+        if(temp->left) q.push(temp->left);
+        if(temp->right) q.push(temp->right);
     }
-    vector<int> ans;
-    Node* head = NULL;
-    convertBstToSortedLL(root,head);
-    display(head);
+    cout << endl;
+}
+
+Node* create(){
+    int data;
+    cout << "enter data : ";
+    cin >> data;
+    if(data == -1){
+        return NULL;
+    }
+    Node* root = new Node(data);
+    root->left = create();
+    root->right = create();
+    return root;
 }
 
 int main(){
-    create();
+    Node* root = NULL;
+    root = create();
+    Node* head = NULL;
+    convertBstToSortedLL(root,head);
+    display(head);
     return 0;
 }
