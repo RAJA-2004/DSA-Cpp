@@ -39,10 +39,10 @@ Node* sortedLLtoBst(Node* &head,int n){
         return NULL;
     }
     // creating left subtree
-    Node* leftSubTree = sortedLLtoBst(head,(n/2)-1);
+    Node* leftSubTree = sortedLLtoBst(head,n/2);
     Node* root = head;
     head = head->right;
-    root->right = sortedLLtoBst(head,n/2);
+    root->right = sortedLLtoBst(head,(n/2)-1);
     return root;
 }
 
