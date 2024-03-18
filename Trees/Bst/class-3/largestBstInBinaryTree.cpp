@@ -20,18 +20,31 @@ class Node{
     }
 };
 
-Node* bst(Node* root,int key){
+class NodeData{
+    public:
+    int minVal;
+    int maxVal;
+    int size;
+    bool validBst;
+
+    NodeData(int size,int max,int min,bool valid){
+        this->size = size;
+        minVal = min;
+        maxVal = max;
+        validBst = valid;
+    }
+};
+
+NodeData* findLargestBst(Node* root,int& ans){
+    // base case
     if(root == NULL){
-        Node* temp = new Node(key);
-        return root;
+        NodeData* temp = new NodeData(0,INT_MIN,INT_MAX,true);
+        return temp;
     }
-    if(key > root->data){
-        root->right = bst(root->right,key);
-    }
-    else{
-        root->left = bst(root->left,key);
-    }
-    return root;
+    NodeData* leftAns = findLargestBst(root->left,ans);
+    NodeData* rightAns = findLargestBst(root->right,ans);
+
+    NodeData* currNode = 
 }
 
 Node* create(){
