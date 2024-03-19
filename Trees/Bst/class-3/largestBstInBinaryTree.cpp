@@ -26,7 +26,9 @@ class NodeData{
     int maxVal;
     int size;
     bool validBst;
+    NodeData(){
 
+    };
     NodeData(int size,int max,int min,bool valid){
         this->size = size;
         minVal = min;
@@ -44,7 +46,21 @@ NodeData* findLargestBst(Node* root,int& ans){
     NodeData* leftAns = findLargestBst(root->left,ans);
     NodeData* rightAns = findLargestBst(root->right,ans);
 
-    NodeData* currNode = 
+    NodeData* currNode;
+    // left side + right side + node itself
+    currNode->size = leftAns->size+rightAns->size+1;
+    currNode->maxVal = max(root->data,rightAns->maxVal);
+    currNode->minVal = min(root->data,leftAns->minVal);
+
+    if(leftAns->validBst && rightAns->validBst && (root->data < rightAns->minVal && root->data > leftAns->maxVal)){
+        currNode->validBst = true;
+    }else{
+        currNode->validBst = false;
+    }
+    if(currNode->validBst){
+        ans = max(ans,currNode->size);
+    }
+    return currNode;
 }
 
 Node* create(){
@@ -63,6 +79,8 @@ Node* create(){
 int main(){
     Node* root = NULL;
     root = create();
-    Node* head = NULL;
+    int ans = 0;
+    NodeData* temp = findLargestBst(root,ans);
+    cout << temp->size << endl;
     return 0;
 }
