@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// <!-- time complexity  : O() -->
-// <!-- space complexity : O() -->
+// <!-- time complexity  : O(n) -->
+// <!-- space complexity : O(1) -->
 
 int solve(int n){
 	
