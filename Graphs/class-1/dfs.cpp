@@ -8,6 +8,7 @@ void df(int node,vector<int> vis,vector<int>& ls,vector<int> adj[]){
 	vis[node] = 1;
 	ls.push_back(node);
 	for(auto it : adj[node]){
+		// base case
 		if(!vis[it]){
 			df(it,vis,ls,adj);
 		}
