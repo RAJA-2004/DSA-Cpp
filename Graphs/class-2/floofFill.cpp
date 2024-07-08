@@ -2,7 +2,7 @@
 using namespace std;
 
 // <!-- time complexity  : O(m*n) -->
-// <!-- space complexity : O(n) -->
+// <!-- space complexity : O(m*n) -->
 
 void dfs(int sr, int sc,int initalColor, int newColor,vector<vector<int>>& image,vector<vector<int>>& ans,int d1[],int d2[]){
 	ans[sr][sc] = newColor;
