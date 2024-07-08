@@ -20,6 +20,7 @@ int canPartition(vector<int>& nums,int sum) {
             }
         }
     }
+
     return dp[m][n];
 }
 
