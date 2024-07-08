@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// <!-- time complexity  : O(m*n) -->
+// <!-- space complexity : O(m*n) -->
+
 void dfs(int node,vector<int> adj[],vector<int>& vis,vector<vector<int>>& isConnected){
 	vis[node] = 1;
 	for(auto it : adj[node]){
